@@ -10,11 +10,8 @@ colors = colorgram.extract("image.jpg", 15)
 
 
 def random_color():
-    color = random.randint(0, 14)
-    r = colors[color].rgb.r
-    g = colors[color].rgb.g
-    b = colors[color].rgb.b
-    return r, g, b
+    color = random.choice(colors)
+    return color.rgb
 
 
 # 10 x 10 picture with 20 size dots space of 50
