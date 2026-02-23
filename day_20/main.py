@@ -1,28 +1,32 @@
-from turtle import Screen, Turtle
+import time
+from turtle import Screen
+from snake import Snake
 
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title("Snake Game")
-x_axis = 0
-y_axis = 0
-# 1. create the snake body
-for n in range(0, 3):
-    grug = Turtle(shape="square")
-    grug.color("white")
-    grug.penup()
-    grug.goto(x_axis - (n * 20), y_axis)
+screen.tracer(0)
 
-# 2. move the snake
+snake = Snake()
 
-# 3. Control the snake
+game_is_on = True
+while game_is_on:
+    screen.update()
+    time.sleep(0.1)
+    snake.move()
+    # 3. Control the snake
 
-# 4. Detect collision with food
+    # 4. Detect collision with food
 
-# 5. create a scoreboard
+    # 5. create a scoreboard
 
-# 6. detect collision with wall
-
+    # 6. detect collision with wall
+"""
+    if segments[0].xcor() in [-300, 300] or segments[0].ycor() in [-300, 300]:
+        game_is_on = False
+        print("you hit the wall and lose")
+        """
 # 7. detect colision with tail
 
 
