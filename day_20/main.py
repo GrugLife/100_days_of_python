@@ -27,17 +27,15 @@ while game_is_on:
 
     # Detect collision with food
     if snake.head.distance(food) < 15:
+        # create ad update scoreboard
         scoreboard.increase_score()
+        # add a new food item
         food.new_food()
 
-    # 5. create a scoreboard
-
     # 6. detect collision with wall
-"""
-    if segments[0].xcor() in [-300, 300] or segments[0].ycor() in [-300, 300]:
+    if snake.head.xcor() in [-300, 300] or snake.head.ycor() in [-300, 300]:
         game_is_on = False
-        print("you hit the wall and lose")
-        """
+        scoreboard.game_over()
 # 7. detect colision with tail
 
 
