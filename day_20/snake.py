@@ -15,7 +15,7 @@ class Snake:
         self.create_snake()
         self.head = self.segments[0]
 
-    # 1. create the snake body
+    # create the snake body
     def create_snake(self):
         for n in range(0, 3):
             grug = Turtle(shape="square")
@@ -24,7 +24,7 @@ class Snake:
             grug.goto(X_AXIS - (n * 20), Y_AXIS)
             self.segments.append(grug)
 
-    # 2. move the snake
+    # move the snake
     def move(self):
         for seg_num in range(len(self.segments) - 1, 0, -1):
             new_x = self.segments[seg_num - 1].xcor()
@@ -32,7 +32,7 @@ class Snake:
             self.segments[seg_num].goto(new_x, new_y)
         self.head.forward(MOVE_DISTANCE)
 
-    # 3. control the snake
+    # control the snake
     def up(self):
         if self.head.heading() != DOWN:
             self.head.setheading(UP)
