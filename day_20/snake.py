@@ -7,6 +7,7 @@ UP = 90
 DOWN = 270
 LEFT = 180
 RIGHT = 0
+STARTING_POSITION = [(0, 0), (0, -20), (0, -40)]
 
 
 class Snake:
@@ -17,12 +18,18 @@ class Snake:
 
     # create the snake body
     def create_snake(self):
-        for n in range(0, 3):
-            grug = Turtle(shape="square")
-            grug.color("white")
-            grug.penup()
-            grug.goto(X_AXIS - (n * 20), Y_AXIS)
-            self.segments.append(grug)
+        for position in STARTING_POSITION:
+            self.add_segment(position)
+
+    def add_segment(self, position):
+        grug = Turtle(shape="square")
+        grug.color("white")
+        grug.penup()
+        grug.goto(position)
+        self.segments.append(grug)
+
+    def extend(self):
+        self.add_segment(self.segments[-1].position())
 
     # move the snake
     def move(self):
